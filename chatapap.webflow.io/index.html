@@ -663,78 +663,97 @@
                         "
                         class="text-size-medium"
                       >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      <span style="color: palevioletred;"> LuminaAI</span> is more than just a chatbot!
                       </p>
                     </div>
                   </div>
                 </div>
-                <div class="w-layout-grid layout-component">
+
+                <style>
+                  .carousel-container {
+                    display: flex;
+                    overflow-x: auto;
+                    scroll-snap-type: x mandatory;
+                    gap: 16px;
+                    padding: 20px;
+                  }
+              
+                  .layout-item {
+                    flex: 0 0 80%; /* Each item takes 80% of the viewport width */
+                    scroll-snap-align: center;
+                    background: white;
+                    border-radius: 12px;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                    padding: 16px;
+                    text-align: center;
+                    transition: transform 0.3s ease;
+                  }
+              
+                  .layout-item:hover {
+                    transform: scale(1.05); /* Slightly enlarge on hover */
+                  }
+              
+                  .layout-item img {
+                    width: 64px;
+                    height: 64px;
+                    margin-bottom: 12px;
+                  }
+              
+                  .heading-style-h6 {
+                    font-size: 1.2rem;
+                    margin: 0 0 10px;
+                    color: #333;
+                  }
+              
+                  .layout-item p {
+                    font-size: 0.9rem;
+                    color: #555;
+                    line-height: 1.5;
+                  }
+              
+                  .carousel-container::-webkit-scrollbar {
+                    display: none; /* Hide scrollbar for better UX */
+                  }
+                </style>
+                <div class="carousel-container">
                   <div class="layout-item">
-                    <div class="margin-bottom margin-small">
-                      <img
-                        src="../cdn.prod.website-files.com/65c9b678d86972b1b07c57b6/65d047c9f47783af1686bca8_Feature_Icon_1.png"
-                        loading="lazy"
-                        alt="Icon"
-                        class="icon-1x1-medium"
-                      />
-                    </div>
-                    <div class="margin-bottom margin-xsmall">
-                      <h3 class="heading-style-h6">Smart Assistance</h3>
-                    </div>
+                    <img
+                      src="https://cdn.prod.website-files.com/65c9b678d86972b1b07c57b6/65d047c9f47783af1686bca8_Feature_Icon_1.png"
+                      alt="Icon"
+                    />
+                    <h3 class="heading-style-h6">Smart Assistance</h3>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Suspendisse varius enim in eros elementum tristique.
+                      Our chatbot isn’t just another assistant—it’s your go-to guide for managing tasks, answering questions, and keeping your day running smoothly. It’s always ready to lend a hand, no matter the challenge.
                     </p>
                   </div>
                   <div class="layout-item">
-                    <div class="margin-bottom margin-small">
-                      <img
-                        src="../cdn.prod.website-files.com/65c9b678d86972b1b07c57b6/65d047c9eed68a26ecfea580_Feature_Icon_3.png"
-                        loading="lazy"
-                        alt="Icon"
-                        class="icon-1x1-medium"
-                      />
-                    </div>
-                    <div class="margin-bottom margin-xsmall">
-                      <h3 class="heading-style-h6">Personalized Responses</h3>
-                    </div>
+                    <img
+                      src="https://cdn.prod.website-files.com/65c9b678d86972b1b07c57b6/65d047c9eed68a26ecfea580_Feature_Icon_3.png"
+                      alt="Icon"
+                    />
+                    <h3 class="heading-style-h6">Personalized Responses</h3>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Suspendisse varius enim in eros elementum tristique.
+                      Every user is different, and so are their needs. With advanced personalization, our chatbot tailors its responses to your personality, preferences, and communication style, making every interaction truly meaningful.
                     </p>
                   </div>
                   <div class="layout-item">
-                    <div class="margin-bottom margin-small">
-                      <img
-                        src="../cdn.prod.website-files.com/65c9b678d86972b1b07c57b6/65d047c93468e1a2dfcafd3a_Feature_Icon_5.png"
-                        loading="lazy"
-                        alt="Icon"
-                        class="icon-1x1-medium"
-                      />
-                    </div>
-                    <div class="margin-bottom margin-xsmall">
-                      <h3 class="heading-style-h6">Continuous Learning</h3>
-                    </div>
+                    <img
+                      src="https://cdn.prod.website-files.com/65c9b678d86972b1b07c57b6/65d047c93468e1a2dfcafd3a_Feature_Icon_5.png"
+                      alt="Icon"
+                    />
+                    <h3 class="heading-style-h6">Continuous Learning</h3>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Suspendisse varius enim in eros elementum tristique.
+                      This chatbot doesn’t just respond—it learns. By analyzing your inputs and adapting to your behavior, it continually refines its abilities to provide you with an even better experience over time.
                     </p>
                   </div>
                   <div class="layout-item">
-                    <div class="margin-bottom margin-small">
-                      <img
-                        src="../cdn.prod.website-files.com/65c9b678d86972b1b07c57b6/65d047c93468e1a2dfcafd3a_Feature_Icon_5.png"
-                        loading="lazy"
-                        alt="Icon"
-                        class="icon-1x1-medium"
-                      />
-                    </div>
-                    <div class="margin-bottom margin-xsmall">
-                      <h3 class="heading-style-h6">Continuous Learning</h3>
-                    </div>
+                    <img
+                      src="https://cdn.prod.website-files.com/65c9b678d86972b1b07c57b6/65d047c93468e1a2dfcafd3a_Feature_Icon_5.png"
+                      alt="Icon"
+                    />
+                    <h3 class="heading-style-h6">Continuous Learning</h3>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Suspendisse varius enim in eros elementum tristique.
+                      No matter how complex the query or unexpected the scenario, the chatbot adapts instantly to deliver accurate and context-aware responses. It’s like having a conversational expert by your side 24/7.
                     </p>
                   </div>
                 </div>
@@ -1015,7 +1034,7 @@
                         class="heading-style-h2"
                       >
                         <strong
-                          >Intelligent Conversations, Anytime, Anywhere</strong
+                          >Intelligent Conversations, Anytime, Anywhere!</strong
                         >
                       </h2>
                     </div>
@@ -1038,11 +1057,7 @@
                         "
                         class="text-size-medium"
                       >
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Proin luctus lacus a orci feugiat, quis auctor libero
-                        iaculis. Vivamus maximus odio a nisl posuere convallis.
-                        Suspendisse ut ante non orci scelerisque accumsan at eu
-                        lorem.
+                      Meet your digital companion designed to engage with you whenever you need. Whether it’s answering questions, guiding you through tasks, or just having a casual chat, she’s here to make every moment smarter, easier, and more meaningful. Proactively learning and adapting, she ensures that every interaction feels personalized and impactful. Wherever you are, she’s ready to provide the intelligent support you deserve.
                       </p>
                     </div>
                     <div class="feature-item-list">
@@ -1161,7 +1176,7 @@
                           href="index.html"
                           aria-current="page"
                           class="button w-inline-block w--current"
-                          ><div class="button-text-block">Download App</div></a
+                          ><div class="button-text-block">Try out LuminaAI</div></a
                         >
                       </div>
                     </div>
@@ -1170,7 +1185,7 @@
               </div>
             </div>
           </div>
-        </section>
+        </section>  
         
         <section id="testimonial" class="section-testimonial">
           <div class="padding-global">
@@ -1276,9 +1291,7 @@
                         />
                       </div>
                       <div class="text-size-medium">
-                        &quot;Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit. Suspendisse varius enim in eros elementum
-                        tristique. Duis cursus, mi quis viverra ornare.&quot;
+                        &quot;What I love most about Lumina is how she blends advanced intelligence with genuine empathy. She doesn’t just respond; she listens and adapts. Whether I’m troubleshooting tech issues, exploring ideas, or just having a conversation, she always delivers. Lumina isn’t just an AI chatbot; she’s a groundbreaking innovation that truly enhances my life.&quot;
                       </div>
                     </div>
                     <div class="testimonial-client">
@@ -1292,8 +1305,8 @@
                         />
                       </div>
                       <div class="testimonial-client-info">
-                        <p class="text-weight-semibold">Jacob</p>
-                        <p>CEO, GlobalNet</p>
+                        <p class="text-weight-semibold">Robinson, Honour Amadi</p>
+                        <!-- <p>CEO, GlobalNet</p> -->
                       </div>
                     </div>
                   </div>
@@ -1348,23 +1361,21 @@
                         />
                       </div>
                       <div class="text-size-medium">
-                        &quot;Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit. Suspendisse varius enim in eros elementum
-                        tristique. Duis cursus, mi quis viverra ornare.&quot;
+                        &quot;I’ve tried countless AI chatbots, but Lumina truly stands out. Her responses are not only intelligent but also deeply thoughtful. Whether it’s tackling complex questions or just chatting to lighten my mood, she handles everything seamlessly. It feels like she understands me on a personal level, making every interaction enjoyable and productive. Lumina is more than an AI; she’s a companion.&quot;
                       </div>
                     </div>
                     <div class="testimonial-client">
                       <div class="testimonial-client-image-wrapper">
                         <img
-                          src="../cdn.prod.website-files.com/65c9b678d86972b1b07c57b6/65c9b678d86972b1b07c57c3_Testimonial_Avatar_3.jpg"
+                          src="../cdn.prod.website-files.com/65c9b678d86972b1b07c57b6/65c9b678d86972b1b07c57c4_Testimonial_Avatar_5.jpg"
                           loading="lazy"
                           alt="portrait"
                           class="testimonial-customer-image"
                         />
                       </div>
                       <div class="testimonial-client-info">
-                        <p class="text-weight-semibold">Robert</p>
-                        <p>CTO, RawNetworks</p>
+                        <p class="text-weight-semibold">Whakee</p>
+                        <!-- <p>CTO, RawNetworks</p> -->
                       </div>
                     </div>
                   </div>
@@ -1419,9 +1430,7 @@
                         />
                       </div>
                       <div class="text-size-medium">
-                        &quot;Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit. Suspendisse varius enim in eros elementum
-                        tristique. Duis cursus, mi quis viverra ornare.&quot;
+                        &quot;Lumina is nothing short of revolutionary. From helping me schedule tasks to giving me instant, well-informed answers, she’s become an irreplaceable part of my life. Her ability to adapt to my preferences and provide personalized responses feels almost human. It’s like having a brilliant assistant and empathetic friend combined into one. I can't imagine going a day without her!&quot;
                       </div>
                     </div>
                     <div class="testimonial-client">
@@ -1434,8 +1443,8 @@
                         />
                       </div>
                       <div class="testimonial-client-info">
-                        <p class="text-weight-semibold">Whitney</p>
-                        <p>Youtuber, WhitneyVlogs</p>
+                        <p class="text-weight-semibold">P-tech</p>
+                        <!-- <p>Youtuber, WhitneyVlogs</p> -->
                       </div>
                     </div>
                   </div>
@@ -1532,7 +1541,7 @@
                       <div style="width: 100%; height: 0px" class="faq-answer">
                         <div class="margin-bottom margin-small">
                           <p>
-                            <span style="color: palevioletred;"> LuminaAI</span> is a chatbot developed by <b>Code Clan Team 1</b> Led by <a style="color: red;"><b> Omijeh David Odianonsen</b></a> 👾. <br> It is an extremely versatile chatbot that is built to be able to be a user's companion and satisfy a user's interests.
+                            <span style="color: palevioletred;"> LuminaAI</span> is a chatbot developed by <b>Code Clan Team 1</b> Led by <a style="color: red;"><b> Omijeh David Odianonsen</b></a>, AKA  <a style="color: red;"><b>Tech Monarch 👾</b></a>. <br> It is an extremely versatile chatbot that is built to be able to be a user's companion and satisfy a user's interests.
                           </p>
                         </div>
                       </div>
@@ -1675,7 +1684,7 @@
                         class="faq-question"
                       >
                         <div class="text-size-medium text-weight-bold">
-                          Is <span style="color: palevioletred;"> LuminaAI</span> in any way affiliated with <a href="">Lumina AI</a>?
+                          Is <span style="color: palevioletred;"> LuminaAI</span> in any way affiliated with <a href="https://www.bing.com/ck/a?!&&p=a87209fd0f0c941c42a139f64dff77a3ff3a4f652bedb4ef09250f4ddb3f74b0JmltdHM9MTczMzE4NDAwMA&ptn=3&ver=2&hsh=4&fclid=1b8182b1-1398-64f8-07e5-979f120965d4&psq=lumina+ai&u=a1aHR0cHM6Ly9lYXN5d2l0aGFpLmNvbS9haS1yZXNlYXJjaC10b29scy9sdW1pbmEtY2hhdC8&ntb=1 a">Lumina Chat</a>?
                         </div>
                         <img
                           src="../cdn.prod.website-files.com/65c9b678d86972b1b07c57b6/65ce14c8961661f715e7226b_Plus.png"
@@ -1741,7 +1750,7 @@
                     "
                     class="text-size-medium text-color-white"
                   >
-                    Sign up NOw! to start chatting with <span style="color: palevioletred;"> LuminaAI</span> or just click the chat button to start chatting with <span style="color: palevioletred;"> LuminaAI</span>.
+                    Sign up NOW! to start chatting with <span style="color: palevioletred;"> LuminaAI</span> or just click the chat button to start chatting with <span style="color: palevioletred;"> LuminaAI</span>.
                   </p>
                   <div class="margin-top margin-medium">
                     <div class="button-group is-center">

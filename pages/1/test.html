@@ -6,50 +6,174 @@
   <title>Chatbot</title>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <style>
-    body { font-family: Arial, sans-serif; background-color: black; color: white; }
-    .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-    .chat-history { max-height: 60vh; overflow-y: auto; margin-bottom: 20px; }
-    .message { padding: 10px; margin: 5px 0; border-radius: 10px; }
-    .user { background-color: #ff69b4; text-align: right; }
-    .bot { background-color: #333; text-align: left; }
-    .typing { display: flex; align-items: center; }
-    .typing span { width: 10px; height: 10px; margin: 0 5px; background-color: #bbb; border-radius: 50%; animation: pulse 1.5s infinite; }
-    .input-area { display: flex; margin-top: 20px; }
-    .input-area input { flex-grow: 1; padding: 10px; border: none; border-radius: 5px; background-color: #444; color: white; }
-    .input-area button { padding: 10px; margin-left: 10px; background-color: #ff69b4; border: none; border-radius: 5px; cursor: pointer; }
-    .dropdown { background-color: #ff69b4; padding: 10px; border-radius: 5px; cursor: pointer; }
-    .dropdown-options { background-color: #ff69b4; position: absolute; width: 200px; margin-top: 5px; border-radius: 5px; display: none; }
-    .dropdown-options button { width: 100%; padding: 10px; background-color: #ff69b4; border: none; text-align: left; cursor: pointer; }
-    .popup { background-color: #ff1493; color: white; padding: 10px; border-radius: 5px; position: absolute; top: 100px; left: 50%; transform: translateX(-50%); }
-    @keyframes pulse { 0%, 50%, 100% { opacity: 1; } 25%, 75% { opacity: 0.5; } }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0f0e11;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .chat-history {
+      max-height: 70vh;
+      overflow-y: auto;
+      margin-bottom: 20px;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: transparent;
+    }
+    .message {
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 10px;
+      word-wrap: break-word;
+    }
+    .user {
+      background-color: #ff69b4;
+      text-align: right;
+      margin-left: 30%; /* Add some margin to the left to make it more visually separated */
+      border-top-left-radius: 0; /* Square off left corner */
+    }
+    .bot {
+      background-color: #333;
+      text-align: left;
+      margin-right: 30%; /* Add some margin to the right to make it visually separate */
+      border-top-right-radius: 0; /* Square off right corner */
+    }
+    .typing {
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+    }
+    .typing span {
+      width: 10px;
+      height: 10px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+    .input-area {
+      display: flex;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #222;
+      border-radius: 5px;
+    }
+    .input-area input {
+      flex-grow: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #444;
+      color: white;
+    }
+    .input-area button {
+      padding: 10px;
+      margin-left: 10px;
+      background-color: #ff69b4;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .dropdown {
+      background-color: #ff69b4;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .dropdown-options {
+      background-color: #ff69b4;
+      position: absolute;
+      width: 200px;
+      margin-top: 5px;
+      border-radius: 5px;
+      display: none;
+    }
+    .dropdown-options button {
+      width: auto;
+      padding: 10px;
+      margin: 5px 0;
+      background-color: #ff69b4;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+    }
+    .popup {
+      background-color: #ff1493;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  
+    @keyframes pulse {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0.5; }
+    }
   </style>
+  
 </head>
 <body>
-  <div class="container">
-    <div class="dropdown" onclick="toggleDropdown()">Click to Change Modes</div>
-    <div class="dropdown-options" id="dropdown-options">
-      <button onclick="handleLanguageChange('english')">English</button>
-      <button onclick="handleLanguageChange('igbo')">Igbo</button>
-      <button onclick="handleLanguageChange('yoruba')">Yoruba</button>
-      <button onclick="handleLanguageChange('hausa')">Hausa</button>
-      <button onclick="handleLanguageChange('benin')">Edo</button>
-      <button onclick="handleLanguageChange('ikwerre')">Ikwerre</button>
-      <button onclick="handleLanguageChange('pidgin')">Pidgin</button>
-      <button onclick="handleLanguageChange('ashewo')">Ashewo Mode💀</button>
-      <button onclick="handleLanguageChange('ashewo_pidgin')">Pidgin Ashewo Mode💀</button>
-      <button onclick="handleLanguageChange('Homoooo')">Homo Mode💀💀💀</button>
-      <button onclick="handleLanguageChange('Professor')">Professor Mode🧑‍🏫</button>
-    </div>
+    <div class="container">
+        <div class="dropdown" onclick="toggleDropdown()" style="width: 8rem; text-align: center; display: block; margin: 0 auto; margin-bottom: 0.2rem">Click to change Personalities</div>
 
-    <div class="popup" id="popup" style="display: none;"></div>
-
-    <div class="chat-history" id="chat-history"></div>
-
-    <div class="input-area">
-      <input type="text" id="message-input" placeholder="Type your message">
-      <button onclick="handleSendMessage()">Send</button>
-    </div>
-  </div>
+        <div class="dropdown-options" id="dropdown-options">
+          <button onclick="handleLanguageChange('english')">English</button>
+          <button onclick="handleLanguageChange('igbo')">Igbo</button>
+          <button onclick="handleLanguageChange('yoruba')">Yoruba</button>
+          <button onclick="handleLanguageChange('hausa')">Hausa</button>
+          <button onclick="handleLanguageChange('benin')">Edo</button>
+          <button onclick="handleLanguageChange('ikwerre')">Ikwerre</button>
+          <button onclick="handleLanguageChange('pidgin')">Pidgin</button>
+          <button onclick="handleLanguageChange('ashewo')">Ashewo Mode💀</button>
+          <button onclick="handleLanguageChange('ashewo_pidgin')">Pidgin Ashewo Mode💀</button>
+          <button onclick="handleLanguageChange('Homoooo')">Homo Mode💀💀💀</button>
+          <button onclick="handleLanguageChange('Professor')">Professor Mode🧑‍🏫</button>
+        </div>
+    
+        <div class="popup" id="popup" style="display: none;"></div>
+    
+        <div class="chat-history" id="chat-history"></div>
+    
+        <div class="input-area" style="position: fixed; bottom: 0; left: 0; width: 100%; padding: 10px; background-color: #0f0e11;">
+            <input type="text" id="message-input" placeholder="Type your message" style="width: 80%; padding: 10px; border-radius: 5px; background-color: #444; color: white;" onkeypress="handleEnterKey(event)">
+            <button onclick="handleSendMessage()" style="width: 15%; padding: 10px; margin-left: 10px; background-color: #ff69b4; border: none; border-radius: 5px; cursor: pointer">Send</button>
+          </div>
+<script>
+    function handleEnterKey(event) {
+        // Check if the Enter key (key code 13) is pressed
+        if (event.key === "Enter") {
+          // Prevent the default action (form submission or other default behaviors)
+          event.preventDefault();
+          
+          // Call the function to send the message
+          handleSendMessage();
+        }
+      }
+      
+      function handleSendMessage() {
+        const messageInput = document.getElementById("message-input");
+        const message = messageInput.value.trim();
+        
+        // Only send the message if it's not empty
+        if (message !== "") {
+          console.log("Message sent: " + message);
+          // Clear the input field after sending
+          messageInput.value = "";
+        }
+      }
+      
+</script>          
+          
+      </div>
 
   <script>
     let messageInput = document.getElementById('message-input');

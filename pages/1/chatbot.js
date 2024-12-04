@@ -1,33 +1,58 @@
-function sendMessage() {
-    const userMessage = chatTextarea.value.trim();
-    if (!userMessage) return;
+document.addEventListener("DOMContentLoaded", function() {
+    const messageInput = document.getElementById("fn__chat_textarea");
+    const sendButton = document.getElementById("send-button");
+    const chatContainer = document.getElementById("chat-container");
 
-    appendMessage(userMessage, "your__chat", "You");
+    // When the user clicks the send button
+    sendButton.addEventListener("click", async () => {
+        const userMessage = messageInput.value.trim();
+        if (!userMessage) return;
 
-    // For the first message, set it as the chat title
-    if (titleHolder.textContent === "Title") {
-        titleHolder.textContent = summarizeText(userMessage);
-    }
+        // Display the user's message in the chat
+        const userDiv = document.createElement("div");
+        userDiv.classList.add("chat__item", "your__chat");
+        userDiv.innerHTML = `<div class="author"><span>You</span></div><div class="chat"><p>${userMessage}</p></div>`;
+        chatContainer.appendChild(userDiv);
+        messageInput.value = ""; // Clear the input
 
-    // Clear the input field
-    chatTextarea.value = "";
+        // Scroll to the bottom of the chat container
+        chatContainer.scrollTop = chatContainer.scrollHeight;
 
-    // Send message to server
-    fetch("/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: userMessage })
-    })
-        .then((response) => response.json())
-        .then((data) => {
-            if (data.message) {
-                appendMessage(data.message, "bot__chat", "Bot");
-            } else {
-                appendMessage("Something went wrong. Please try again.", "bot__chat", "Bot");
-            }
-        })
-        .catch((error) => {
+        // Send the user's message to the server
+        try {
+            const response = await fetch("/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ message: userMessage })
+            });
+
+            const data = await response.json();
+
+            // Display the bot's response in the chat
+            const botDiv = document.createElement("div");
+            botDiv.classList.add("chat__item", "bot__chat");
+            botDiv.innerHTML = `<div class="author"><span>Bot</span></div><div class="chat"><p>${data.message}</p></div>`;
+            chatContainer.appendChild(botDiv);
+
+            // Scroll to the bottom of the chat container
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        } catch (error) {
             console.error("Error:", error);
-            appendMessage("Unable to reach the server. Please try again later.", "bot__chat", "Bot");
-        });
-}
+            // Display a fallback error message
+            const errorDiv = document.createElement("div");
+            errorDiv.classList.add("chat__item", "bot__chat");
+            errorDiv.innerHTML = `<div class="author"><span>Bot</span></div><div class="chat"><p>Sorry, something went wrong.</p></div>`;
+            chatContainer.appendChild(errorDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+    });
+
+    // Handle Enter key press for sending messages
+    messageInput.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            sendButton.click();
+        }
+    });
+});

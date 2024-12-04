@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(express.static("Lumina")); // Adjust this to match your folder name
 
 // OpenAI API Key (replace YOUR_API_KEY with your actual key)
-const OPENAI_API_KEY = "YOUR_API_KEY";
+const OPENAI_API_KEY = "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"; // You can also keep this in an .env file
 
 app.post("/chat", async (req, res) => {
     const userMessage = req.body.message;
@@ -23,12 +23,15 @@ app.post("/chat", async (req, res) => {
         const response = await fetch("https://api.openai.com/v1/chat/completions", {
             method: "POST",
             headers: {
-                "Authorization": `Bearer ${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}`,
+                "Authorization": `Bearer ${OPENAI_API_KEY}`,
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 model: "gpt-3.5-turbo",
-                messages: [{ role: "user", content: userMessage }],
+                messages: [
+                    { role: "system", content: "You are a helpful assistant." },
+                    { role: "user", content: userMessage }
+                ],
                 max_tokens: 150
             })
         });

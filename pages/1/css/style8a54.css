@@ -1,9 +1,9 @@
 @charset "utf-8";
 :root,
 [data-techwave-skin="light"]:root {
-  --techwave-main-color: #D5006D;
-  --techwave-main-color1: #F06292;
-  --techwave-main-color2: #F8BBD0;
+  --techwave-main-color: rgb(104, 92, 132);
+  --techwave-main-color1: rgb(130, 115, 166);
+  --techwave-main-color2: rgb(168, 153, 200);
 }
 hr,
 select {
